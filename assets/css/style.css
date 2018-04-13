@@ -18,6 +18,10 @@ body {
     background-color: #8fc1e3;
 }
 
+.bg-darkgreen {
+    background-color: #687864;
+}
+
 .space {
     margin-bottom: 20px;
 }
