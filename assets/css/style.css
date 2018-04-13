@@ -33,7 +33,7 @@ body {
 }
 
 .circle-sizer {
-    width: 25%;
+    width: 40%;
     /* height: auto; */
     /* height: 100%; */
     height: 25%;
@@ -43,8 +43,15 @@ body {
 }
 
 .circle-sizer-2 {
-    width: 25%;
+    width: 40%;
     height: 25%;
     text-align: center;
     padding: 20px;
+}
+
+.placeholder {
+    border: 1px solid black;
+    text-align: center;
+    padding: 80px 0px;
+    /* height: 150%; */
 }
