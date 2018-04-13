@@ -1,0 +1,33 @@
+body {
+    overflow-x: hidden;
+}
+
+.color-deepblue {
+    color: #31708e;
+}
+
+.color-white {
+    color: #f7f9fb;
+}
+
+.bg-deepblue {
+    background-color: #31708e;
+}
+
+.bg-lightblue {
+    background-color: #8fc1e3;
+}
+
+.space {
+    margin-bottom: 20px;
+}
+
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.img-sizer {
+    width: 100%;
+    background-size: contain;
+}
