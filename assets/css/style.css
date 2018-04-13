@@ -39,5 +39,12 @@ body {
     height: 25%;
     /* padding: auto; */
     text-align: center;
+    padding: 20px 0px;
+}
+
+.circle-sizer-2 {
+    width: 25%;
+    height: 25%;
+    text-align: center;
     padding: 20px;
 }
