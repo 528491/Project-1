@@ -34,19 +34,37 @@ $(document).ready(function() {
         }, function(data) {
             // console.log(data);
             $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
-                console.log(item);
+                // console.log(item);
                 pid = item.contentDetails.relatedPlaylists.uploads;
 
                 // the second "get" request
-                // getVids(pid);
+                getVids(pid);
             })
         }
     );
 
 
-    // function getVids(pid) {
-
-    // }
+    function getVids(pid) {
+        $.get(
+            "https://www.googleapis.com/youtube/v3/playlistItems", { 
+                part: 'snippet',
+                maxResults: 10,
+                playlistId: pid,
+                key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4'
+            }, function(data) {
+                console.log(data);
+                var output;
+                $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
+                    // console.log(item);
+                    videoTitle = item.snippet.title;
+                    console.log(videoTitle);
+    
+                    // the second "get" request
+                    // getVids(pid);
+                })
+            }
+        );
+    }
 
 });
 
