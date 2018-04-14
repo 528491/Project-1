@@ -58,14 +58,21 @@ $(document).ready(function() {
                 $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
                     // console.log(item);
                     videoTitle = item.snippet.title;
-                    videoId = item.snippet.resourceId.videoId;
+                    // videoId = item.snippet.resourceId.videoId;
+                    videoThumb = item.snippet.thumbnails.default.url;
 
-                    videoLink = $("<iframe></iframe>");
-                    $(videoLink).attr("src", "www.youtube.com/embed/" + videoId);
-                    output = $("<div></div>");
+                    // videoLink = $("<iframe></iframe>");
+                    // $(videoLink).attr("src", "www.youtube.com/embed/" + videoId);
+
+                    thumbnailDisplay = $("<img></img>")                             // the thumbnail
+                    $(thumbnailDisplay).attr("src", videoThumb);
+
+
+                    output = $("<div class = 'thumbnail'></div>");
 
                     $("#videos").append(videoTitle);                                // displays the video title
-                    $(output).html(videoLink);                                      
+                    // $(output).html(videoLink);
+                    $(output).html(thumbnailDisplay);                                      
                     $("#videos").append(output);                                    // displays the videos themselves
                     console.log(videoTitle);
 
