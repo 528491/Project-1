@@ -43,12 +43,13 @@ $(document).ready(function() {
         }
     );
 
+    var resultNumber = 10;
 
     function getVids(pid) {
         $.get(
             "https://www.googleapis.com/youtube/v3/playlistItems", { 
                 part: 'snippet',
-                maxResults: 10,
+                maxResults: resultNumber,
                 playlistId: pid,
                 key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4'
             }, function(data) {
@@ -63,9 +64,9 @@ $(document).ready(function() {
                     $(videoLink).attr("src", "www.youtube.com/embed/" + videoId);
                     output = $("<div></div>");
 
-                    $("#videos").append(videoTitle);
-                    $(output).html(videoLink);
-                    $("#videos").append(output);
+                    $("#videos").append(videoTitle);                                // displays the video title
+                    $(output).html(videoLink);                                      
+                    $("#videos").append(output);                                    // displays the videos themselves
                     console.log(videoTitle);
 
                     spacing = $("<div class = 'space'></div>");
