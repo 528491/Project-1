@@ -56,7 +56,7 @@ $(document).ready(function() {
                 console.log(data);
                 var output;
                 $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
-                
+
                     // console.log(item);
                     videoTitle = item.snippet.title;
 
@@ -71,26 +71,56 @@ $(document).ready(function() {
                     thumbnailDisplay = $("<img></img>")                        
                     $(thumbnailDisplay).attr("src", videoThumb);
 
-                    // this div will hold the thumbnail
-                    output = $("<div class = 'thumbnail'></div>");       
+    
 
                     $("#videos").append(videoTitle);                                // displays the video title
 
                     // $(output).html(videoLink);
 
+                    // this div will hold the thumbnail
+                    output = $("<div class = 'thumbnail'></div>");
+                    var thumbnailId = "thumbnail-" + i;   
+                    // $(output).attr("id", "thumbnail-" + i);
+                    $(output).attr("id", thumbnailId);
                     $(output).html(thumbnailDisplay);                                      
                     $("#videos").append(output);                                    // displays the videos themselves
                     console.log(videoTitle);
 
+                    // spacing to separate videos
                     spacing = $("<div class = 'space'></div>");
-
                     $("#videos").append(spacing);   
+
+                    getVidInfo(thumbnailId, item);
 
 
                 })
+
+                
             }
         );
     }
+
+    function getVidInfo(thumbnailId, item) {
+        $("#" + thumbnailId).on("click", function() {
+
+            // I need to get the information associated with the particular thumbnail that I click on
+            // Once I have that data, then I can display that video by accessing its id.
+
+            var videoId = item.snippet.resourceId.videoId;
+
+            var videoLink = $("<iframe></iframe>");
+            $(videoLink).attr("src", "www.youtube.com/embed/" + videoId);
+
+            $("#vid-display").append(videoLink);
+            
+
+        })
+
+    }
+
+
+
+
 
 });
 
