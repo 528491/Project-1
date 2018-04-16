@@ -67,9 +67,12 @@ $(document).ready(function() {
                     // videoLink = $("<iframe></iframe>");
                     // $(videoLink).attr("src", "www.youtube.com/embed/" + videoId);
 
-                    // the thumbnail
+                    // "making" the thumbnails
                     thumbnailDisplay = $("<img></img>")                        
                     $(thumbnailDisplay).attr("src", videoThumb);
+                    var thumbnailClickable = $("<a></a>");                          // makes the thumbnails obviously clickable to the user
+                    $(thumbnailClickable).attr("href", "#");                        // this href link won't redirect anywhere
+                    $(thumbnailClickable).append(thumbnailDisplay);                 // puts the thumbnail display inside thumbnailClickable
 
     
 
@@ -77,20 +80,20 @@ $(document).ready(function() {
 
                     // $(output).html(videoLink);
 
-                    // this div will hold the thumbnail
-                    output = $("<div class = 'thumbnail'></div>");
-                    var thumbnailId = "thumbnail-" + i;   
-                    // $(output).attr("id", "thumbnail-" + i);
+                    // === Displaying thumbnails to page ===
+                    output = $("<div class = 'thumbnail'></div>");                  // this div will hold the thumbnail
+                    var thumbnailId = "thumbnail-" + i;                             // the id that we will attach to the thumbnail div
                     $(output).attr("id", thumbnailId);
-                    $(output).html(thumbnailDisplay);                                      
-                    $("#videos").append(output);                                    // displays the videos themselves
-                    console.log(videoTitle);
+                    // $(output).html(thumbnailDisplay);      
+                    $(output).html(thumbnailClickable);                             // putting the thumbnail we created inside the "output" div                                
+                    $("#videos").append(output);                                    // displays the video thumbnails inside the #videos div
+                    // console.log(videoTitle);
 
                     // spacing to separate videos
                     spacing = $("<div class = 'space'></div>");
                     $("#videos").append(spacing);   
 
-                    getVidInfo(thumbnailId, item);
+                    getVidInfo(thumbnailId, item);                                  // Function to display the clicked video to the webpage.
 
 
                 })
@@ -106,12 +109,15 @@ $(document).ready(function() {
             // I need to get the information associated with the particular thumbnail that I click on
             // Once I have that data, then I can display that video by accessing its id.
 
-            var videoId = item.snippet.resourceId.videoId;
+            // prevents duplicates from being displayed
+            $("#vid-display").empty();
+
+            var videoId = item.snippet.resourceId.videoId;                                  // gets the video id of the clicked thumbnail's video
 
             var videoLink = $("<iframe class = 'display'></iframe>");
             $(videoLink).attr("src", "https://www.youtube.com/embed/" + videoId);
 
-            $("#vid-display").append(videoLink);
+            $("#vid-display").append(videoLink);                                            // displays the video 
             
 
         })
