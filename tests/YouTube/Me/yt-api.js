@@ -131,11 +131,13 @@ $(document).ready(function() {
 
     }
 
+
+    // when pressing the "load more videos" button, load more videos.
     $("#vid-load").on("click", function() {
         // resultNumber = resultNumber + 10;
         $("#load-message").html("10 more videos loaded.");
         // $("#videos").empty();
-        getInfo();
+        getInfo();                                                          // running this function again will retrieve ten more videos.
     })
 
 
