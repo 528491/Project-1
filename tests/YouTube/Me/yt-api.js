@@ -24,24 +24,28 @@ var channelName = "TechGuyWeb";
 
 $(document).ready(function() {
 
+    function getInfo() {
+        // first "get" request
+        $.get(
+            "https://www.googleapis.com/youtube/v3/channels", { 
+                part: 'contentDetails',
+                forUsername: channelName,
+                key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4'
+            }, function(data) {
+                // console.log(data);
+                $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
+                    // console.log(item);
+                    pid = item.contentDetails.relatedPlaylists.uploads;
 
-    // first "get" request
-    $.get(
-        "https://www.googleapis.com/youtube/v3/channels", { 
-            part: 'contentDetails',
-            forUsername: channelName,
-            key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4'
-        }, function(data) {
-            // console.log(data);
-            $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
-                // console.log(item);
-                pid = item.contentDetails.relatedPlaylists.uploads;
+                    // the second "get" request
+                    getVids(pid);
+                })
+            }
+        );
+    }
 
-                // the second "get" request
-                getVids(pid);
-            })
-        }
-    );
+    getInfo();
+    
 
     var resultNumber = 10;
 
@@ -95,6 +99,9 @@ $(document).ready(function() {
 
                     getVidInfo(thumbnailId, item);                                  // Function to display the clicked video to the webpage.
 
+                    var numThumbs = $(".thumbnail").length;
+                    console.log("Number of Thumbnails: " + numThumbs);
+
 
                 })
 
@@ -123,6 +130,13 @@ $(document).ready(function() {
         })
 
     }
+
+    $("#vid-load").on("click", function() {
+        // resultNumber = resultNumber + 10;
+        $("#load-message").html("10 more videos loaded.");
+        // $("#videos").empty();
+        getInfo();
+    })
 
 
 
