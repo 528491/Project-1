@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Google Maps Directions</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .controls {
+      margin-top: 10px;
+      border: 1px solid transparent;
+      border-radius: 2px 0 0 2px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      height: 32px;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #origin-input,
+    #destination-input {
+      background-color: #fff;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+      margin-left: 12px;
+      padding: 0 11px 0 13px;
+      text-overflow: ellipsis;
+      width: 200px;
+    }
+
+    #origin-input:focus,
+    #destination-input:focus {
+      border-color: #121d2e;
+    }
+
+    #mode-selector {
+      color: #fff;
+      background-color: grey;
+      margin-left: 12px;
+      padding: 5px 11px 0px 11px;
+    }
+
+    #mode-selector label {
+      font-family: Roboto;
+      font-size: 13px;
+      font-weight: 300;
+    }
+  </style>
+</head>
+
+<body>
+
+  <input id="start" class="controls" type="text" placeholder="Enter Your Address" onFocus="geolocate()">
+  <input id="end" class="controls" type="text" placeholder="9936 Beachy Ave. Arleta, CA 91331">
+
+  <div id="mode-selector" class="controls">
+    <input type="radio" name="type" id="changemode-walking">
+    <label for="changemode-walking">Walking</label>
+
+    <input type="radio" name="type" id="changemode-transit">
+    <label for="changemode-transit">Transit</label>
+
+    <input type="radio" name="type" id="changemode-driving" checked="checked">
+    <label for="changemode-driving">Driving</label>
+  </div>
+
+  <div id="map"></div>
+
+  <script>
+    //This is map with start and end destinations, map marker is also added
+    var placeSearch, autocomplete, marker;
+
+    function initAutocomplete() {
+      // Create the autocomplete object, restricting the search to geographical
+      // location types.
+      autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('start')),
+        { types: ['geocode'] });
+
+      //Load map with assigned locator
+      var map = new google.maps.Map(document.getElementById('map'), {
+        mapTypeControl: false,
+        center: { lat: 34.251268, lng: -118.441183 },
+        zoom: 18
+      });
+
+      //Added Marker code
+      marker = new google.maps.Marker({
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          position: { lat: 34.251268, lng: -118.441183 },
+          title: 'Vietnamese Evangelical Church (Hội Thánh Tin Lành Việt Nam) North Hollywood'
+        });
+        marker.addListener('click', toggleBounce);
+      }
+      //Marker bounces on mouse click
+      function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }//End of marker code
+
+
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          var geolocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          var circle = new google.maps.Circle({
+            center: geolocation,
+            radius: position.coords.accuracy
+          });
+          autocomplete.setBounds(circle.getBounds());
+        });
+      }
+    }//end of initAutoComplete()
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlvNNu33wLTWD5g2DwWs61iWawPsb5fPM&libraries=places&callback=initAutocomplete"
+    async defer></script>
+</body>
+
+</html>
+
