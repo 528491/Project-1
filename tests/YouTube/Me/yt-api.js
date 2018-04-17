@@ -109,6 +109,10 @@ $(document).ready(function() {
                     var numThumbs = $(".thumbnail").length;
                     console.log("Number of Thumbnails: " + numThumbs);
 
+                    if (numThumbs === data.pageInfo.totalResults) {
+                        stopButton();
+                    }
+
 
                 })
 
@@ -156,6 +160,10 @@ $(document).ready(function() {
     })
 
 
+    function stopButton() {
+        $("#vid-load").off("click");
+        $("#load-message").html("All videos loaded.");
+    }
     // function nextPageToken() {
     //     nextPageToken
     // }
