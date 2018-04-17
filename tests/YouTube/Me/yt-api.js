@@ -23,16 +23,18 @@ NOTE: I have decided to not do the API request the ajax way. Using the $get meth
 var channelName = "ChurchNorthHollywood";
 // var nextPageToken;
 
+var channelInfo = {
+    part: 'contentDetails',
+    forUsername: channelName,
+    key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4'
+}
+
 $(document).ready(function() {
 
     function getInfo() {
         // first "get" request
         $.get(
-            "https://www.googleapis.com/youtube/v3/channels", { 
-                part: 'contentDetails',
-                forUsername: channelName,
-                key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4'
-            }, function(data) {
+            "https://www.googleapis.com/youtube/v3/channels", channelInfo, function(data) {
                 // console.log(data);
                 $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
                     // console.log(item);
@@ -142,7 +144,15 @@ $(document).ready(function() {
         resultNumber = resultNumber + 10;
         $("#load-message").html("10 more videos loaded.");
         // $("#videos").empty();
-        getInfo();                                                          // running this function again will retrieve ten more videos.
+        getInfo();
+
+        // if (resultNumber <= 50) {
+        //     getInfo();                                                          // running this function again will retrieve ten more videos.
+        // }
+
+        // else {
+        //     data.pageToken: 
+        // }
     })
 
 
