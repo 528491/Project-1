@@ -20,7 +20,8 @@ NOTE: I have decided to not do the API request the ajax way. Using the $get meth
 
 /////////////////////////////////////////////////////////////
 
-var channelName = "TechGuyWeb";
+var channelName = "ChurchNorthHollywood";
+// var nextPageToken;
 
 $(document).ready(function() {
 
@@ -50,12 +51,16 @@ $(document).ready(function() {
     var resultNumber = 10;
 
     function getVids(pid) {
+
+        $("#videos").empty();
         $.get(
             "https://www.googleapis.com/youtube/v3/playlistItems", { 
                 part: 'snippet',
                 maxResults: resultNumber,
                 playlistId: pid,
-                key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4'
+                key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4',
+                // nextPageToken = data.nextPageToken
+
             }, function(data) {
                 console.log(data);
                 var output;
@@ -134,14 +139,16 @@ $(document).ready(function() {
 
     // when pressing the "load more videos" button, load more videos.
     $("#vid-load").on("click", function() {
-        // resultNumber = resultNumber + 10;
+        resultNumber = resultNumber + 10;
         $("#load-message").html("10 more videos loaded.");
         // $("#videos").empty();
         getInfo();                                                          // running this function again will retrieve ten more videos.
     })
 
 
-
+    // function nextPageToken() {
+    //     nextPageToken
+    // }
 
 
 });
