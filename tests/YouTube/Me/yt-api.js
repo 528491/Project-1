@@ -21,7 +21,6 @@ NOTE: I have decided to not do the API request the ajax way. Using the $get meth
 /////////////////////////////////////////////////////////////
 
 var channelName = "ChurchNorthHollywood";
-// var nextPageToken;
 
 var channelInfo = {
     part: 'contentDetails',
@@ -32,7 +31,8 @@ var channelInfo = {
 $(document).ready(function() {
 
     function getInfo() {
-        // first "get" request
+
+        // ==== first "get" request to get info of the Church's YouTube channel. ====
         $.get(
             "https://www.googleapis.com/youtube/v3/channels", channelInfo, function(data) {
                 // console.log(data);
@@ -40,7 +40,7 @@ $(document).ready(function() {
                     // console.log(item);
                     pid = item.contentDetails.relatedPlaylists.uploads;
 
-                    // the second "get" request
+                    // the second "get" request to display the thumbnails.
                     getVids(pid);
                 })
             }
@@ -52,16 +52,18 @@ $(document).ready(function() {
 
     var resultNumber = 10;
 
+
+    // ==== the second "get" request to display the thumbnails. ====
     function getVids(pid) {
 
-        $("#videos").empty();
+        $("#videos").empty();                                                       // Prevents duplicate videos from being displayed.
+
         $.get(
             "https://www.googleapis.com/youtube/v3/playlistItems", { 
                 part: 'snippet',
                 maxResults: resultNumber,
                 playlistId: pid,
                 key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4',
-                // nextPageToken = data.nextPageToken
 
             }, function(data) {
                 console.log(data);
@@ -69,46 +71,42 @@ $(document).ready(function() {
                 $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
 
                     // console.log(item);
-                    videoTitle = item.snippet.title;
-
-                    // videoId = item.snippet.resourceId.videoId;
-
+                    videoTitle = item.snippet.title;                                // title of the video
                     videoThumb = item.snippet.thumbnails.default.url;               // the url for the videos' thumbnails
 
-                    // videoLink = $("<iframe></iframe>");
-                    // $(videoLink).attr("src", "www.youtube.com/embed/" + videoId);
-
-                    // "making" the thumbnails
+                    // ==== "making" the thumbnails ====
                     thumbnailDisplay = $("<img></img>")                        
                     $(thumbnailDisplay).attr("src", videoThumb);
                     var thumbnailClickable = $("<a></a>");                          // makes the thumbnails obviously clickable to the user
                     $(thumbnailClickable).attr("href", "#");                        // this href link won't redirect anywhere
                     $(thumbnailClickable).append(thumbnailDisplay);                 // puts the thumbnail display inside thumbnailClickable
 
-    
-
                     $("#videos").append(videoTitle);                                // displays the video title
 
-                    // $(output).html(videoLink);
 
                     // === Displaying thumbnails to page ===
                     output = $("<div class = 'thumbnail'></div>");                  // this div will hold the thumbnail
                     var thumbnailId = "thumbnail-" + i;                             // the id that we will attach to the thumbnail div
-                    $(output).attr("id", thumbnailId);
-                    // $(output).html(thumbnailDisplay);      
+                    $(output).attr("id", thumbnailId);                              // attaches the above id to the thumbnail div
                     $(output).html(thumbnailClickable);                             // putting the thumbnail we created inside the "output" div                                
                     $("#videos").append(output);                                    // displays the video thumbnails inside the #videos div
                     // console.log(videoTitle);
 
-                    // spacing to separate videos
+                    // ==== spacing to separate videos ====
                     spacing = $("<div class = 'space'></div>");
                     $("#videos").append(spacing);   
 
-                    getVidInfo(thumbnailId, item);                                  // Function to display the clicked video to the webpage.
 
+                    // ==== Function to display the clicked video to the webpage. ====
+                    getVidInfo(thumbnailId, item);                                  
+
+
+                    // ==== variable to keep track of the number of thumbnails displayed. ====
                     var numThumbs = $(".thumbnail").length;
                     console.log("Number of Thumbnails: " + numThumbs);
 
+
+                    // ==== if the number of displayed thumbs equals the max number of videos on the channel ====
                     if (numThumbs === data.pageInfo.totalResults) {
                         stopButton();
                     }
@@ -147,16 +145,7 @@ $(document).ready(function() {
     $("#vid-load").on("click", function() {
         resultNumber = resultNumber + 10;
         $("#load-message").html("10 more videos loaded.");
-        // $("#videos").empty();
         getInfo();
-
-        // if (resultNumber <= 50) {
-        //     getInfo();                                                          // running this function again will retrieve ten more videos.
-        // }
-
-        // else {
-        //     data.pageToken: 
-        // }
     })
 
 
@@ -164,10 +153,6 @@ $(document).ready(function() {
         $("#vid-load").off("click");
         $("#load-message").html("All videos loaded.");
     }
-    // function nextPageToken() {
-    //     nextPageToken
-    // }
-
 
 });
 
