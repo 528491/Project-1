@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Link to Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+    <!-- Link to css -->
+    <link rel = "stylesheet" type = "text/css" href = "yt-api.css">
+
+    <link href="Youtube-TV/src/ytv.css" type="text/css" rel="stylesheet">
+
+
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div class = "container">
+        <div class = "jumbotron bg-danger text-white text-center">
+            <h1>YouTube Videos!</h1>
+        </div>
+
+        <div class = "row space"></div>
+
+        <div class = "row">
+            <div class = "col-4"></div>
+            <div class = "col-4 d-flex flex-column justify-content-around" id = "vid-holder"></div>
+            <div class = "col-4"></div>
+        </div>
+
+        <div id="YourPlayerID"></div>
+
+    </div>
+
+    <!-- Link to jQuery -->
+    <script type = "text/javascript" src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!-- Link to JavaScript -->
+    <script type = "text/javascript" src = "yt-api.js"></script>
+
+    <script src="Youtube-TV/src/ytv.js" type="text/javascript"></script>
+
+    <script>
+			
+        $(window).load(function(){
+            
+            $('#frame').ytv({
+                user: 'Apple',
+                accent: '#d51c18'
+            });
+            
+        });
+        
+    </script>
+</body>
+</html>
