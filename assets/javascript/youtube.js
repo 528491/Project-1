@@ -72,7 +72,7 @@ $(document).ready(function() {
 
                     // ==== spacing to separate videos ====
                     spacing = $("<div class = 'space'></div>");
-                    $("#videos").append(spacing);   
+                    $("#videos").append(spacing);  
 
 
                     // ==== Function to display the clicked video to the webpage. ====
@@ -91,6 +91,14 @@ $(document).ready(function() {
 
 
                 })
+
+                // ==== Displaying an initial video when page loads ====
+                var firstVidId = data.items[0].snippet.resourceId.videoId;
+
+                var videoLink = $("<iframe class = 'display'></iframe>");
+                $(videoLink).attr("src", "https://www.youtube.com/embed/" + firstVidId);
+
+                $("#vid-display").append(videoLink);                                            // displays the video 
 
                 
             }
