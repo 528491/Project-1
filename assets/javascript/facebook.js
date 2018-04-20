@@ -92,9 +92,14 @@ window.fbAsyncInit = function() {
             var seeMore = $("<div id='seeMore'>");
             // seeMore.css("float","right");
             // seeMore.css("color","#3C5898");
-            seeMore.html("See more...");
+            // seeMore.html("See more...");
 
-            // var linkToPage = $("<div id = ")
+            // makes "see more..." go to the webpage
+            var linkToPage = $("<a></a>");
+            console.log("permalink: " + tmp.data[i].permalink_url);
+            $(linkToPage).attr("href", tmp.data[i].permalink_url);
+            $(linkToPage).html("See more...");
+            $(seeMore).append(linkToPage);
             bodyDiv.append(seeMore);
             
             
