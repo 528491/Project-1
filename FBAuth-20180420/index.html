@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>North Hollywood Church</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+
+     <!-- Link to Bootstrap-->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+     <!-- Link to css file -->
+     <link rel = "stylesheet" type = "text/css" href = "assets/css/style.css">
+
+     <link rel = "stylesheet" type = "text/css" href = "assets/css/youtube.css">
+
+     <link rel = "stylesheet" type = "text/css" href = "assets/css/googlemaps.css">
+     <link rel = "stylesheet" type = "text/css" href = "assets/css/facebook.css">
+
+     <!-- Link to Google Fonts -->
+     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
+
+     <!-- Link to Firebase -->
+     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+</head>
+
+
+<!-- <body class = "bg"> -->
+<body>
+
+
+    <!-- <div class = "row space"></div> -->
+    <div class = "row space"></div>
+
+
+    <!-- TODO: Add APIs and Links to all of the items below. -->
+
+    <div class = "container">
+
+        <div class = "row space"></div>
+
+
+        <div class = "jumbotron bg-blue text-center color-white text-roboto header">
+            <h1 class = "display-3" style = "font-weight: bold">North Hollywood Church</h1>
+            <p class = "lead">9936 Beachy Ave, Arleta, CA 91331</p>
+            <hr class = "my-4">
+        </div>
+
+        <div class = "row">
+            <section class = "col-8">
+                <!-- <img src = "assets/images/placeholder.jpg" class = "img-fluid img-sizer" alt = "image" id = "church-image"> -->
+                <img src = "assets/images/church.jpg" class = "img-fluid img-sizer" alt = "image" id = "church-image">
+            </section>
+
+            <section class = "col-1"></section>
+
+            <section class = "col-3 d-flex flex-column justify-content-around text-robCondensed">
+                <!-- <div class = "rounded-circle bg-lightblue color-white circle-sizer-2" id = "bible-search">Bible Search</div>
+                <div class = "rounded-circle bg-lightblue color-white circle-sizer" id = "reg-schedule">Regular Schedule</div>
+                <div class = "rounded-circle bg-lightblue color-white circle-sizer" id = "peers">Peers</div> -->
+                <div id = "google-icon googleBtn" class="major-provider btn _block _medium _google">
+                    <a href = "#">
+                        <img src = "assets/images/google-icon.png" class = "icon-sizer">
+                    </a>
+                </div>
+
+                <div id = "facebook-icon">
+                    <button onclick="checkLoginState()">
+                    <img src = "assets/images/fb-icon.png" class = "icon-sizer">
+                    </button>
+                </div>
+
+                <div id = "login-icon">
+                    <img src = "assets/images/login-icon.jpg" class = "icon-sizer">
+                </div>
+
+            </section>
+        </div>
+
+        <div class = "row space"></div>
+        <div class = "row space"></div>
+
+        <div class = "row">
+            <!-- <section class = "col-6">
+                <div class = "placeholder" id = "facebook-posts">Facebook Posts Will Go Here</div>
+            </section>
+
+            <section class = "col-6">
+                <div class = "placeholder" id = "facebook-events">Facebook Events Will Go Here</div>
+            </section> -->
+
+            <section class = "col-12 pre-scrollable" id = "post-holder">
+                <!-- <div id="showPage">
+                    <div id="showPost"></div>
+                </div>    -->
+                <div id="showPost"></div>
+            </section>
+        </div>
+
+        <div class = "row space"></div>
+        <div class = "row space"></div>
+        <div class = "row space"></div>
+
+        <div class = "row align-items-center">
+            <!-- <section class = "col-12">
+                <div class = "placeholder" id = "youtube">Youtube Content Will Go Here</div>
+            </section> -->
+
+            <section class = "col-lg-7" id = "vid-display"></section>
+            
+            <section class = "col-lg-1 space"></section>
+
+            <section class = "col-lg-4">
+
+                <button type = "button" class = "btn btn-primary" id = "vid-load">Load More Videos</button>
+                <section id = "load-message"></section>
+
+                <section class = "space"></section>
+
+                <section class = "d-flex flex-column pre-scrollable" id = "videos">
+                    <section class = "space"></section>
+                </section>
+
+            </section>
+
+            
+
+
+        </div>
+
+        <div class = "row space"></div>
+        <div class = "row space"></div>
+
+        <div class = "row">
+            <!-- <section class = "col-6">
+                <div class = "placeholder" id = "directions">Directions</div>
+            </section>
+
+            <section class = "col-6">
+                <div class = "placeholder" id = "contacts">Contacts</div>
+            </section> -->
+
+
+            <div class = "col-md-6">
+
+                <input id="start" class="controls" type="text" placeholder="Enter Your Start Address" onFocus="geolocate()">
+        
+                <select id="mode" class="controls">
+                    <option value="DRIVING">Select Travel Option</option>
+                    <option value="DRIVING">Driving</option>
+                    <option value="WALKING">Walking</option>
+                    <option value="BICYCLING">Bicycling</option>
+                    <option value="TRANSIT">Transit</option>
+                </select>
+                
+                <button id="detailsBtn" class="btn btn-secondary">Details</button>
+
+            </div>
+            
+        </div>
+
+        <div class = "row">
+            <div class = "col-md-6">
+                <!--map-->
+                <div id = "mapHolder">
+                    <div id="map"></div>
+                </div>
+            </div>
+
+            <div class = "col-md-6">
+                <!--detail direction panel-->
+                <div id = "instructionHolder">
+                    <div id="bottom-panel" class = "pre-scrollable"></div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class = "row space"></div>
+        <div class = "row space"></div>
+        <!-- <div class = "row space"></div>
+        <div class = "row space"></div> -->
+
+
+    </div>
+
+    
+
+
+
+
+    <!-- Link to jQuery -->
+    <script type = "text/javascript" src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+    <!-- Link to Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlvNNu33wLTWD5g2DwWs61iWawPsb5fPM&libraries=places&callback=init"
+    async defer></script>
+
+
+    <!-- Link to JavaScript -->
+    <!-- <script type = "text/javascript" src = "assets/javascript/app.js"></script> -->
+
+
+    <!-- Link to youtube.js -->
+    <script type = "text/javascript" src = "assets/javascript/youtube.js"></script>
+
+
+    <!-- Link to googlemaps.js -->
+    <script type = "text/javascript" src = "assets/javascript/googlemaps.js"></script>
+
+    <!-- Link to facebook.js -->
+    <script type = "text/javascript" src = "assets/javascript/facebook.js"></script>
+
+    <!-- Link to Google Authentication -->
+    <script src="assets/javascript/googleAuth.js"></script>
+
+    <!-- Link to Facebook Authentication -->
+    <script src="assets/javascript/fbAuth.js"></script>
+
+
+</body>
+</html>
