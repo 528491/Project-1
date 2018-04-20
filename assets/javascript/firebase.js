@@ -24,7 +24,8 @@ var config = {
     
     
     if(firebaseUser){
-        console.log(firebaseUser.uid);console.log(firebaseUser.email);
+        console.log(firebaseUser.uid);
+        console.log(firebaseUser.email);
         // firebase.database().ref('/Users/'+firebaseUser.uid).once("value").then(function(response){
         //     console.log("onAuthstate"+JSON.stringify(response));
         //     $("#showSignup").hide();
@@ -34,7 +35,7 @@ var config = {
         //     // var temp1=firebase.database().child("Users").child(firebaseUser.uid).getValue("email");
         //     //$("#userStatus").empty();
         //     // console.log(temp1);
-        //     $("#userStatus").text("*****Sign in"+response.email.val());
+            $("#userStatus").html(firebaseUser.email +"is loggeded in");
         //     console.log("salam salam");
        // });
     }
