@@ -65,5 +65,9 @@
 #seemore {
     float: right;
     color: #3C5898;
-    
+
+}
+
+#post-holder {
+    max-height: 400px;
 }
