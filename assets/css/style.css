@@ -68,7 +68,22 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+<<<<<<< HEAD
 .icon-sizer {
     width: 50%;
     height: auto;
+=======
+.header {
+    /* font-size: 50px; */
+    padding: 2rem 2rem;
+}
+
+/* .bg {
+    background-color: rgb(219, 219, 219);
+} */
+
+.container {
+    border: 1px solid rgb(219, 219, 219);
+    background-color: #f7f9fb;
+>>>>>>> 0ca4ad77b7ed06c288231738a17b5872abe0786c
 }
