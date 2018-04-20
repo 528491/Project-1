@@ -17,7 +17,7 @@ $(document).ready(function(){
     //FB Call for Events
     FB.api("/me?fields=id,name,accounts{name,access_token}&access_token=EAADk3j5HRzgBAGjOhK2ZC0keBZBWZCNdWWAERm4jdWuZCR1pYE3qBZABfucDPcL35rHEI9HnjtIlgGP9C6XMas8Q7fZCu7HnHa691WdEOKHxNFziprJ6OQqUJdyZAhW0k7x00vqQHkZCZAtnn3rGvYJC7ENKh4bFExIfZAYtpq2ie51wZDZD",
       function(results) {
-          console.log(results);
+          //console.log(results);
       }
     );
 
@@ -25,13 +25,13 @@ $(document).ready(function(){
     FB.api("/me?fields=id,name,likes,posts.limit(4){message,permalink_url},accounts{fan_count,cover},friends&access_token=EAADk3j5HRzgBAGjOhK2ZC0keBZBWZCNdWWAERm4jdWuZCR1pYE3qBZABfucDPcL35rHEI9HnjtIlgGP9C6XMas8Q7fZCu7HnHa691WdEOKHxNFziprJ6OQqUJdyZAhW0k7x00vqQHkZCZAtnn3rGvYJC7ENKh4bFExIfZAYtpq2ie51wZDZD",
         function(response) {
           var tmpTitle = response;
-          console.log(tmpTitle);
+          //console.log(tmpTitle);
 
           var tmp = response.posts;
-          console.log(tmp);
+          //console.log(tmp);
           for (var i = 0; i < tmp.data.length; i++) {
             var headerDiv = $("<div id='headerDiv'> class='row'");
-            console.log(tmp.data[i].message);
+            //console.log(tmp.data[i].message);
 
             //Church Background Image
             for (var k = 0; k < response.accounts.data.length; k++) {
@@ -100,7 +100,7 @@ $(document).ready(function(){
 
             // makes "see more..." go to the webpage
             var linkToPage = $("<a></a>");
-            console.log("permalink: " + tmp.data[i].permalink_url);
+            //console.log("permalink: " + tmp.data[i].permalink_url);
             $(linkToPage).attr("href", tmp.data[i].permalink_url);
             $(linkToPage).html("See more...");
             $(seeMore).append(linkToPage);
