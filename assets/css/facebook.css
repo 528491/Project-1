@@ -1,0 +1,73 @@
+#showPage {
+    border: 1px solid gray;
+    min-width: 340px;
+}
+
+
+#showPost {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.rightHeaderDiv {
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    margin-left: 10px;
+    color: white;
+}
+
+#headerDiv {
+    font-family: sans-serif;;
+    font-size: 16px;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+    line-height: 1.5;
+    background-color: #3C5898;
+}
+
+#bodyDiv {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+#logo {
+    float: left;
+    padding: 16px;
+    border: 2px solid white;
+    background-image: url("https://scontent.frir1-1.fna.fbcdn.net/v/t1.0-1/c25.0.100.100/p100x100/1936663_112435211862_8135495_n.jpg?_nc_cat=0&oh=53a2b1c33580a77790775ded067b777d&oe=5B713462");
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+}
+
+.logoImg {
+    
+    /* background-image: url("https://scontent.frir1-1.fna.fbcdn.net/v/t1.0-1/c25.0.100.100/p100x100/1936663_112435211862_8135495_n.jpg?_nc_cat=0&oh=53a2b1c33580a77790775ded067b777d&oe=5B713462"); */
+    height: 10%;
+}
+
+.churchName {
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    float: left;
+    color: white;
+}
+
+#likeBtn {
+    color: blue;
+}
+
+#seemore {
+    float: right;
+    color: #3C5898;
+
+}
+
+#post-holder {
+    max-height: 400px;
+}
