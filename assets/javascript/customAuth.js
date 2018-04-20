@@ -33,7 +33,7 @@ console.log("Sara was here.");
   }
   else{
       console.log('not logged in');
-      $("#welcome").html("You are not logged in");
+      $("#welcome").html("");
      // $("#showSignup").show();
      $("#LogOut").hide();
           $("#login").show();
