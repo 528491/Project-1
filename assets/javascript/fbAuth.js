@@ -99,3 +99,6 @@ function testAPI() {
   });
 }
 
+function showUserName(name) {
+ $("#welcome").html("Welcome " + name + "!");
+}
