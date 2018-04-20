@@ -67,3 +67,8 @@ body {
 .text-robCondensed {
     font-family: 'Roboto Condensed', sans-serif;
 }
+
+.icon-sizer {
+    width: 50%;
+    height: auto;
+}
