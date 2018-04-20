@@ -20,7 +20,7 @@ var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?
 }
 $(document).ready(function(){
 firebase.auth().onAuthStateChanged(function(firebaseUser){
-  
+console.log("Sara was here.");
   
   if(firebaseUser){
       console.log(firebaseUser.uid);
