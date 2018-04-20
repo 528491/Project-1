@@ -3,7 +3,7 @@
 $(document).ready(function(){
   
   window.fbAsyncInit = function() {
-    console.log("inside window.fbAsyncInit");
+    //console.log("inside window.fbAsyncInit");
     FB.init({
       appId            : '251643178731320',
       autoLogAppEvents : true,
