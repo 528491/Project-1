@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 01</title>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ceviche+One|Special+Elite|Tauri" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <!--Google Sign-in-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="818275019442-i677ngdm3h9clssjl5jn0a5se2646rjm.apps.googleusercontent.com">
+    
+</head>
+<body>
+    <!--Facebook Login-->
+    <!-- <div id="fb-root"></div> -->
+    <!-- <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=497229994007275&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+    <div id="status"></div> -->
+
+    
+    <!--End Facebook Login-->
+    <div class="container">
+            <!--Google sign-in-->
+            <div class="jumbotron text-center"><h1>User Authentication</h1></div>
+            <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+            <div class="row">
+                    <button id="googleBtn" class="major-provider btn _block _medium _google">Google</button>
+                    
+                    
+
+                    
+                    <div class="fb-login-button" data-max-rows="1" data-size="large"  data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+            </div>
+           
+
+            <!-- <div class="g-signin2"></div> -->
+            <!--End Google sign-in-->
+            
+            
+
+            <!-- Login with username and password -->
+            <div class="mt-3">
+                <label for="username">User Name: </label>
+                <input type="text" id="username" >
+            </div>
+            <div>
+                    <label for="password">Password: </label>
+                <input type="password" id="password"> 
+            </div>
+            <div>
+                <input type="button" id="login" class="btn btn-action" value="Log In">
+                <input type="button" id="SignUp" class="btn btn-secondary" value="Sign Up">
+                <input type="button" id="LogOut"  class="btn btn-action hide"  value="Log Out">
+            </div>
+            <!-- End Login with username and password -->
+
+
+
+
+            <div class="showUserName mt-3"></div>
+    </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
