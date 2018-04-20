@@ -78,7 +78,10 @@ $(document).ready(function(){
             //Like button and Fan Count
             for (var k = 0; k < response.accounts.data.length; k++) {
               if (response.accounts.data[k].id == "112420816862") {
-                var fanCount = $('div id="likeBtn" class="fb-like rightHeaderDiv" data-href="https://www.facebook.com/northhollywoodchurch/" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false">');
+                var fanCount = $('<div id="likeBtn" class="fb-like rightHeaderDiv" 
+                                 data-href="https://www.facebook.com/northhollywoodchurch/" 
+                                 data-layout="standard" data-action="like" data-size="small" 
+                                 data-show-faces="false" data-share="false">');
                 
                 
                 
