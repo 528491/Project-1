@@ -1,4 +1,8 @@
-window.fbAsyncInit = function() {
+
+
+$(document).ready(function(){
+  
+  window.fbAsyncInit = function() {
     console.log("inside window.fbAsyncInit");
     FB.init({
       appId            : '251643178731320',
@@ -176,6 +180,9 @@ window.fbAsyncInit = function() {
     js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=251643178731320&autoLogAppEvents=1';
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
+
+});
+
 
 
 
