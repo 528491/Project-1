@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>North Hollywood Church</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
 
      <!-- Link to Bootstrap-->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -17,6 +17,7 @@
      <link rel = "stylesheet" type = "text/css" href = "assets/css/youtube.css">
 
      <link rel = "stylesheet" type = "text/css" href = "assets/css/googlemaps.css">
+     <link rel = "stylesheet" type = "text/css" href = "assets/css/facebook.css">
 
      <!-- Link to Google Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
@@ -74,7 +75,8 @@
 
         <div class = "row">
             <section class = "col-8">
-                <img src = "assets/images/placeholder.jpg" class = "img-fluid img-sizer" alt = "image" id = "church-image">
+                <!-- <img src = "assets/images/placeholder.jpg" class = "img-fluid img-sizer" alt = "image" id = "church-image"> -->
+                <img src = "assets/images/church.jpg" class = "img-fluid img-sizer" alt = "image" id = "church-image">
             </section>
 
             <section class = "col-1"></section>
@@ -90,12 +92,19 @@
         <div class = "row space"></div>
 
         <div class = "row">
-            <section class = "col-6">
+            <!-- <section class = "col-6">
                 <div class = "placeholder" id = "facebook-posts">Facebook Posts Will Go Here</div>
             </section>
 
             <section class = "col-6">
                 <div class = "placeholder" id = "facebook-events">Facebook Events Will Go Here</div>
+            </section> -->
+
+            <section class = "col-12 pre-scrollable" id = "post-holder">
+                <!-- <div id="showPage">
+                    <div id="showPost"></div>
+                </div>    -->
+                <div id="showPost"></div>
             </section>
         </div>
 
@@ -208,10 +217,12 @@
     <!-- Link to JavaScript file -->
     <script type = "text/javascript" src = "assets/javascript/app.js"></script>
 
+
     <!-- Link to youtube.js -->
     <script type = "text/javascript" src = "assets/javascript/youtube.js"></script>
 
     <!-- Link to googlemaps.js -->
     <script type = "text/javascript" src = "assets/javascript/googlemaps.js"></script>
+    <script type = "text/javascript" src = "assets/javascript/facebook.js"></script>
 </body>
 </html>
