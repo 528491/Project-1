@@ -81,7 +81,7 @@ $(document).ready(function() {
 
                     // ==== variable to keep track of the number of thumbnails displayed. ====
                     var numThumbs = $(".thumbnail").length;
-                    console.log("Number of Thumbnails: " + numThumbs);
+                    //console.log("Number of Thumbnails: " + numThumbs);
 
 
                     // ==== if the number of displayed thumbs equals the max number of videos on the channel ====
