@@ -73,7 +73,7 @@ $("#LogOut").on("click",function(){
 });
 function signUp(email,password){
     firebase.auth().createUserWithEmailAndPassword(email,password).then(function(user){
-    seruid = user.uid;
+    useruid = user.uid;
     firebase.database().ref('/Users/'+useruid).push({
     email : email,
     password : password
