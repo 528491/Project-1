@@ -32,3 +32,16 @@
       /* Use the Roboto font that is loaded in the <head> */
       font-family: 'Roboto', sans-serif;
     }
+/* 
+.icon {
+  height: 100%;
+} */
+/* 
+.iconHolder {
+  height: 42px;
+  width: 42px;
+} */
+
+#google-icon {
+  height: 100%;
+}
