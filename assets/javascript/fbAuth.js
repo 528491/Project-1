@@ -32,7 +32,7 @@ firebase.auth().signInWithPopup(fprovider).then(function(result) {
   // The signed-in user info.
   var user = result.user;
   /********************/
- 
+ console.log(result);
     
     showUserName(user);
  
