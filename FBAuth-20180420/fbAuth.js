@@ -1,4 +1,7 @@
- // Initialize Firebase
+// EXCESS CODE - USED FOR TESTING PURPOSES
+// LEFT IN FOR FEAR OF BREAKING CODE
+
+// Initialize Firebase
   var config = {
     apiKey: "AIzaSyC80yUq1_n29oubnc_nisGuDUUzYKhuLO8",
     authDomain: "master-d1d42.firebaseapp.com",

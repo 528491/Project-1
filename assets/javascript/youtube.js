@@ -87,7 +87,6 @@ $(document).ready(function() {
 
                 $("#vid-display").append(videoLink);                                            // displays the video 
 
-                
             }
         );
     }
@@ -123,5 +122,5 @@ $(document).ready(function() {
         $("#vid-load").off("click");
         $("#load-message").html("All videos loaded.");
     }
-
+    
 });
