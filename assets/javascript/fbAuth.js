@@ -54,8 +54,8 @@ function statusChangeCallback(response) {
   
   if (response.status === 'connected') {
     // Logged into your app and Facebook.
-   $("#welcome").html("Welcome " + response.name + "!");
-    //testAPI();
+   //$("#welcome").html("Welcome " + response.name + "!");
+    testAPI();
    
     
   }
