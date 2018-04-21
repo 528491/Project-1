@@ -24,6 +24,8 @@ var userName = "";
 var userEmail = "";
 var userImage = "";
 
+//var fProvider = new firebase.auth.FacebookAuthProvider();
+
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '251643178731320',
