@@ -2,15 +2,15 @@
 
 
 // // Initialize Firebase
-// var config = {
-//   apiKey: "AIzaSyC2Y1M1nveiUvDZ3qhcL8lvAOTkyER_zlM",
-//   authDomain: "userauthentication-d9c13.firebaseapp.com",
-//   databaseURL: "https://userauthentication-d9c13.firebaseio.com",
-//   projectId: "userauthentication-d9c13",
-//   storageBucket: "userauthentication-d9c13.appspot.com",
-//   messagingSenderId: "341465402406"
-// };
-// firebase.initializeApp(config);
+var config = {
+  apiKey: "AIzaSyC2Y1M1nveiUvDZ3qhcL8lvAOTkyER_zlM",
+  authDomain: "userauthentication-d9c13.firebaseapp.com",
+  databaseURL: "https://userauthentication-d9c13.firebaseio.com",
+  projectId: "userauthentication-d9c13",
+  storageBucket: "userauthentication-d9c13.appspot.com",
+  messagingSenderId: "341465402406"
+};
+firebase.initializeApp(config);
 
 
 //Global variables
