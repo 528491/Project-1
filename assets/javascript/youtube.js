@@ -10,13 +10,11 @@ $(document).ready(function() {
 
     function getInfo() {
 
-        // ==== first "get" request to get info of the Church's YouTube channel. ====
+        // ==== first "get" request to get ID of the uploads of the Church's YouTube channel. ====
         $.get(
             "https://www.googleapis.com/youtube/v3/channels", channelInfo, function(data) {
-                // console.log(data);
                 $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
-                    // console.log(item);
-                    pid = item.contentDetails.relatedPlaylists.uploads;
+                    pid = item.contentDetails.relatedPlaylists.uploads;             // the "uploads" playlist ID
 
                     // the second "get" request to display the thumbnails.
                     getVids(pid);
@@ -26,16 +24,15 @@ $(document).ready(function() {
     }
 
     getInfo();
-    
 
-    var resultNumber = 10;
-
+    // variable connected to the number of results received from the second "get" request
+    var resultNumber = 10;                                                          
 
     // ==== the second "get" request to display the thumbnails. ====
+    // ==== takes the playlist ID 
     function getVids(pid) {
 
         $("#videos").empty();                                                       // Prevents duplicate videos from being displayed.
-
         $.get(
             "https://www.googleapis.com/youtube/v3/playlistItems", { 
                 part: 'snippet',
@@ -44,11 +41,9 @@ $(document).ready(function() {
                 key: 'AIzaSyCqxm1KaFeRuiGu1vl6YcaDnmg7mU0mU_4',
 
             }, function(data) {
-                console.log(data);
                 var output;
                 $.each(data.items, function(i, item) {                              // index is "i"; items[i] === item
 
-                    // console.log(item);
                     videoTitle = item.snippet.title;                                // title of the video
                     videoThumb = item.snippet.thumbnails.default.url;               // the url for the videos' thumbnails
 
@@ -61,35 +56,27 @@ $(document).ready(function() {
 
                     $("#videos").append(videoTitle);                                // displays the video title
 
-
                     // === Displaying thumbnails to page ===
                     output = $("<div class = 'thumbnail'></div>");                  // this div will hold the thumbnail
                     var thumbnailId = "thumbnail-" + i;                             // the id that we will attach to the thumbnail div
                     $(output).attr("id", thumbnailId);                              // attaches the above id to the thumbnail div
                     $(output).html(thumbnailClickable);                             // putting the thumbnail we created inside the "output" div                                
                     $("#videos").append(output);                                    // displays the video thumbnails inside the #videos div
-                    // console.log(videoTitle);
 
                     // ==== spacing to separate videos ====
                     spacing = $("<div class = 'space'></div>");
                     $("#videos").append(spacing);  
 
-
                     // ==== Function to display the clicked video to the webpage. ====
                     getVidInfo(thumbnailId, item);                                  
 
-
                     // ==== variable to keep track of the number of thumbnails displayed. ====
                     var numThumbs = $(".thumbnail").length;
-                    //console.log("Number of Thumbnails: " + numThumbs);
-
 
                     // ==== if the number of displayed thumbs equals the max number of videos on the channel ====
                     if (numThumbs === data.pageInfo.totalResults) {
                         stopButton();
                     }
-
-
                 })
 
                 // ==== Displaying an initial video when page loads ====
@@ -110,9 +97,6 @@ $(document).ready(function() {
 
             event.preventDefault();
 
-            // I need to get the information associated with the particular thumbnail that I click on
-            // Once I have that data, then I can display that video by accessing its id.
-
             // prevents duplicates from being displayed
             $("#vid-display").empty();
 
@@ -123,11 +107,8 @@ $(document).ready(function() {
 
             $("#vid-display").append(videoLink);                                            // displays the video 
             
-
         })
-
     }
-
 
     // when pressing the "load more videos" button, load more videos.
     $("#vid-load").on("click", function(event) {
@@ -137,7 +118,7 @@ $(document).ready(function() {
         getInfo();
     })
 
-
+    // function that runs when all the channel's videos are displayed
     function stopButton() {
         $("#vid-load").off("click");
         $("#load-message").html("All videos loaded.");
