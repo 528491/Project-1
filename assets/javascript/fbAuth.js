@@ -31,7 +31,15 @@ firebase.auth().signInWithPopup(fprovider).then(function(result) {
   var token = result.credential.accessToken;
   // The signed-in user info.
   var user = result.user;
-  // ...
+  /********************/
+ 
+    
+    showUserName(user);
+ 
+ 
+ 
+ /********************/
+ 
 }).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
