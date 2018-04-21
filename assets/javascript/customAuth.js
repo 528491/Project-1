@@ -22,7 +22,7 @@ $(document).ready(function(e){
         $("#LogOut").show();
         $("#submitSignUn").hide();
         $("#login").hide();
-        $("#welcome").html(firebaseUser.email +"is loggeded in");  
+        $("#welcome").html(firebaseUser.email +"is logged in");  
       }
       else{
         console.log('not logged in');
