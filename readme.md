@@ -1,24 +1,33 @@
 # North Hollywood Church
 
-# Overview
+## Overview
 Web-site for a North-Hollywood based Church with Bootstrap CSS for styling; makes use of the Facebook Graph, Google Maps Directions, and YouTube APIs. Also features Firebase authentication with both federated resource providers and direct sign in with email and password.
 
 
-# Technologies Used
+## Technologies Used
+- Html, CSS
+- Bootstrap
+- Javascript
+- Jquery
+- Facebook API
+- Google API
+- Responsive design
+- Firebase
 
-## Styling
+## Code Explanation
+### Styling
 Styling was achieved via the Bootstrap CSS framework, with custom CSS added as needed.
 JQuery was also utilized, primarily for ease of readability with regards to the JavaScript code.
 
-## Functionality
+### Functionality
 In addition, the following services were utilized, accessed via the JavaScript API.
 
- ### Facebook Graph API
- In order to use Facebook Graph API, we need to use developers.facebook.com to create App ID and App Secret for our application. We use App ID and App Secret to get access token for our application. For each query on Facebook Graph API we need to add access token in order to get authenticated. 
+#### Facebook Graph API
+In order to use Facebook Graph API, we need to use developers.facebook.com to create App ID and App Secret for our application. We use App ID and App Secret to get access token for our application. For each query on Facebook Graph API we need to add access token in order to get authenticated. 
 
 Some fields required additional review by Facebook in order to be approved for usage in live applications. Right now, we cannot submit review request since Facebook is reviewing its policies. Future political climates might allow for the integration of these features as planned.
 
-### Google Maps Directions API
+#### Google Maps Directions API
 Display travel directions on map and detail turn by turn to user. We added AutoComplete address to the input box. Map will look for addresses as user typing in. User can pick an address from the suggested list. 
 
 ```javascript
@@ -125,7 +134,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   }//end of function calculateAndDisplayRoute
 ```
 
-### YouTube API
+#### YouTube API
 The displaying of the client’s YouTube videos was accomplished via two HTTP GET requests. The first request retrieved the YouTube ID of the client’s channel uploads, and the second request used this ID to display thumbnails of the channel’s videos and an iframe element to the page. The following is an example of these two GET requests, with each request being part of a function. Note that the second GET request is inside the first, and that an additional function is needed to attach click events to the displayed thumbnails.
 
 ```javascript
@@ -258,7 +267,7 @@ $(document).ready(function() {
 
 ```
 
-## Authentication
+### Authentication
 Authentication was implemented using the firebase auth api, which allows users to authenticate via one of several methods:
 
 - Direct Sign-In/Up with email and password: we can use features of firebase to get users authenticated by their favorite username and password.
@@ -269,8 +278,14 @@ Authentication was implemented using the firebase auth api, which allows users t
 
 - Custom authentication: each time users use email and password authentication we push email and password in the firebase database as custom authentication . We can use custom authentication to collect more data to be used in future. Right now, we just push email and password to the database, but we have another version to collect more data from users when they Sign Up.  
 
+## Lessons Learned
+- How to work in a project with a group and interact with teammates in an effective way.
+- How to use Github to share the code, using branches, and work on code conflicts in a team. 
+- How to use different APIs in an application.
+- Finding related documents and finding related articles in that document for each new subject that we need to work on. 
 
-# Future Plans
+## Future Plans
 - Adding survey to the application in order to know our members’ feedback on events and activities. 
-
 - Adding facebook events to the application that members can see their upcoming events on the index page.
+
+
